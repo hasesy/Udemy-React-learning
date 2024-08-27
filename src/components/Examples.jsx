@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import TabButton from './TabButton.jsx';
+import Section from './Section.jsx';
 import { EXAMPLES } from '../data.js';
 
 export default function Examples() {
@@ -27,38 +28,37 @@ export default function Examples() {
   }
 
   return (
-    <section id="examples">
-      <h2>Examples</h2>
+    <Section title="Examples" id="examples">
       {/* menu = 버튼 목록 만들 때 사용하는 HTML 코드, 탭 만들 때 사용 */}
       <menu>
         {/* 이 코드가 분석될 때 화살표 함수만 정의되기 때문에
             화살표 함수 안에 코드는 아직 실행 X */}
         <TabButton
           isSelected={selectedTopic === 'components'}
-          onSelect={() => handleSelect('components')}
+          onClick={() => handleSelect('components')}
         >
           Components
         </TabButton>
         <TabButton
           isSelected={selectedTopic === 'jsx'}
-          onSelect={() => handleSelect('jsx')}
+          onClick={() => handleSelect('jsx')}
         >
           JSX
         </TabButton>
         <TabButton
           isSelected={selectedTopic === 'props'}
-          onSelect={() => handleSelect('props')}
+          onClick={() => handleSelect('props')}
         >
           Props
         </TabButton>
         <TabButton
           isSelected={selectedTopic === 'state'}
-          onSelect={() => handleSelect('state')}
+          onClick={() => handleSelect('state')}
         >
           State
         </TabButton>
       </menu>
       {tabContent}
-    </section>
+    </Section>
   );
 }
